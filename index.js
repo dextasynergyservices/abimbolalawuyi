@@ -54,6 +54,12 @@ async function initializeAdmin() {
   }
 }
 
+// hash.js
+const plain = 'admin123';
+const hashed = await bcrypt.hash(plain, 10);
+console.log(hashed);
+
+
 // Initialize default content
 async function initializeContent() {
   const count = await Content.countDocuments();
