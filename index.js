@@ -7,7 +7,7 @@ import methodOverride from 'method-override';
 import session from 'express-session';
 import flash from 'express-flash';
 import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -21,7 +21,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(session({
-  secret: 'your-secret-key',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: { maxAge: 1000 * 60 * 60 * 24 } // 1 day
@@ -53,12 +53,6 @@ async function initializeAdmin() {
     console.log("✅ Admin account initialized");
   }
 }
-
-// hash.js
-const plain = 'admin123';
-const hashed = await bcrypt.hash(plain, 10);
-console.log(hashed);
-
 
 // Initialize default content
 async function initializeContent() {
