@@ -538,8 +538,7 @@ body, html{
 
 
 
-/* Optional: Limit how big text can get on large screens */
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .hero-title {
     font-size:4rem !important ;
     max-width: 90%;
@@ -553,13 +552,9 @@ body, html{
     font-size: 1rem;
     padding: 10px 20px;
   }
-}
-
-  /* FOR SMALLER SCREEN */
+} */
+/* 
   @media (max-width: 991px) {
-/* Media Queries for Smaller Screens */
-
-
 
 body{
   overflow-x: hidden;
@@ -573,8 +568,6 @@ body{
   .hero-l{
     width: 100%;
   }
-
-  /* Navbar Customization */
   
   .navbar-toggler {
     border: none;
@@ -603,9 +596,6 @@ body{
   .nav-link:hover {
     text-decoration: underline;
   }
-
-  /* Hero Section */
-  
  
   .hero-l-content h1{
     width: 90%;
@@ -643,8 +633,6 @@ body{
     transform: scale(1.2); 
   }
 
-  /* INTRODUCTION SECTION */
-
 .intro h1 {
   width: 100%;
 }
@@ -653,15 +641,179 @@ body{
   width: 90%;
 }
 
-  /* ABOUT SECTION */
   .count-books {
     flex-direction: column;
-    gap: 20px; /* Adjust spacing between items */
+    gap: 20px; 
   }
 
   .divider {
     border-left: none;
-    border-top: 1px solid #a0827a; /* Optional: Change color and spacing */
+    border-top: 1px solid #a0827a; /
+    width: 50px;
+  }
+
+  .social-icons a {
+    font-size: 1rem;
+    border: none;
+    color: #F8F9FA;
+  }
+} */
+
+@media (min-width: 992px) {
+  .hero-title {
+    font-size:4rem !important ;
+    max-width: 90%;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .hero-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Media Queries for Smaller Screens */
+  body{
+    overflow-x: hidden;
+  }
+  
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+  
+  /* Hero Section Background Image */
+  .hero {
+    background-image: url('/img/coffee.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  .hero-r{
+    display: none !important;
+  }
+  
+  .hero-l{
+    width: 100%;
+    background-color: transparent !important;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Navbar Customization */
+  .navbar-toggler {
+    border: none;
+    outline: none;
+  }
+  
+  .navbar-toggler:active{
+    border: none;
+    outline: none;
+  }
+
+  .navbar-toggler:hover{
+    border: none;
+    outline: none;
+  }
+
+  .navbar-toggler-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .navbar-brand,
+  .nav-link {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  }
+
+  .nav-link:hover {
+    text-decoration: underline;
+    color: #f8f9fa !important;
+  }
+
+  /* Hero Content */
+  .hero-l-content h1{
+    width: 90%;
+    text-align: center;
+    font-size: 9vw !important;
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  .hero-l-content p{
+    width: 100% !important;
+    text-align: center;
+    font-size: 5vw !important;
+    color: white !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  }
+
+  .hero-btn{
+    align-self: center;
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+  }
+
+  .hero-btn:hover {
+    background-color: white;
+    color: #000;
+  }
+  
+  .social-media-icon-mobile{
+    margin-top: 10vh;
+    display: flex;
+    gap: 20px;
+    width: 25px;
+    animation: fadeInUp 3s ease-in-out;
+  }
+  
+  .social-media-icon-mobile .icon {
+    width: 25px;
+    height: 25px;
+    filter: brightness(0) invert(1); /* Make icons white */
+  }
+
+  .social-media-icon-mobile .icon:hover {
+    transform: scale(1.2); 
+    filter: brightness(0) invert(0.8); /* Slightly grey on hover */
+  }
+
+  /* INTRODUCTION SECTION */
+  .intro h1 {
+    width: 100%;
+  }
+
+  .intro p {
+    width: 90%;
+  }
+
+  /* ABOUT SECTION */
+  .count-books {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .divider {
+    border-left: none;
+    border-top: 1px solid #a0827a;
     width: 50px;
   }
 
@@ -671,6 +823,4 @@ body{
     color: #F8F9FA;
   }
 }
-
-
 
