@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/animation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/IntersectionObserver/0.9.1/intersection-observer.js"></script>
 </head>
 
@@ -22,7 +23,7 @@
             <div class="col-12 col-md-8 hero-l">
               <nav class="navbar navbar-expand-lg px-3 px-md-5">
                 <div class="container-fluid px-0">
-                  <a class="navbar-brand" href="#">Navbar</a>
+                  <a class="navbar-brand" href="#"><img src="/img/Logo - white.png" alt=""></a>
                   <button
                     class="navbar-toggler"
                     type="button"
@@ -31,9 +32,9 @@
                     aria-controls="navbarNavAltMarkup"
                     aria-expanded="false"
                     aria-label="Toggle navigation"
-                  >
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
+                >
+                    <i class="fa-solid fa-bars-staggered navbar-toggler-icon-custom"></i>
+                </button>
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
                       <a class="nav-link active" href="#">Home</a>
@@ -45,6 +46,8 @@
                   </div>
                 </div>
               </nav>
+
+              <div class="navbar-overlay"></div>
   
               <div class="hero-l-content w-100 d-flex flex-column justify-content-center align-items-start px-3 px-md-5" style="height: 100%;">
                 <h1 class="hero-title animate__animated animate__fadeInLeft fw-bold">
@@ -55,9 +58,9 @@
                   <%= hero.subtitle %>
                 </p>
               
-                <button type="button" class="btn hero-btn animate__animated animate__fadeInUp mt-3">
+                <a href="/books" class="btn hero-btn animate__animated animate__fadeInUp mt-3 text-decoration-none">
                   Read Sample Now
-                </button>
+                </a>
               
                 <div class="social-media-icon-mobile d-flex gap-3 mt-4">
                   <a href="#"><img src="img/facebook (1).png" class="icon" alt="Facebook" /></a>
@@ -71,6 +74,19 @@
   
             <!-- Right Content -->
             <div class="col-md-4 d-none d-md-flex hero-r justify-content-end">
+              <!-- Multiple background images -->
+              <div class="hero-bg-image active" style="background-image: url('/img/coffee.jpg')"></div>
+              <div class="hero-bg-image" style="background-image: url('/img/For BOOKS (1).png')"></div>
+              <div class="hero-bg-image" style="background-image: url('/img/For BOOKS (2).png')"></div>
+              <div class="hero-bg-image" style="background-image: url('/img/For BOOKS (3).png')"></div>
+
+              <div class="hero-r-overlay"></div>
+
+               <div class="hero-bg-controls">
+    <button class="bg-prev" onclick="changeBackground(-1)">‹</button>
+    <button class="bg-next" onclick="changeBackground(1)">›</button>
+  </div>
+              
               <div class="social-media-icon d-flex flex-column align-items-end gap-3 m-4">
                 <a href="#"><img src="img/facebook (1).png" class="icon" alt="Facebook"></a>
                 <a href="#"><img src="img/youtube (1).png" class="icon" alt="YouTube"></a>
@@ -88,37 +104,34 @@
   
 
     <!-- INTRODUCTION SECTION -->
-    <section>
-        <div class="container-fluid intro">
-          <div class="row vh-90"></div>
-          <div class="m-md-5">
-            <!-- Heading: Making it responsive -->
-            <h1 class="display-4 text-center text-md-center animate__animated animate__fadeInDown"> Introduction </h1>
-            
-            <!-- Paragraph: Adjust text size on small screens -->
-            <p class="lead text-center text-md-center animate__animated animate__fadeInUp">
-              <%= intro.content %>
-            </p>
-          </div>
+    <!-- <section class="intro-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <h1 class="text-center mb-4 animate__animated animate__fadeInDown">Introduction</h1>
+                <p class="text-center lead animate__animated animate__fadeInUp">
+                    <%= intro.content %>
+                </p>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section> -->
       <!-- END OF INTRODUCTION SECTION -->
 
      <!-- ABOUT SECTION -->
     <section id="about" class=" py-5">
       <div class="container ">
-        <div class="row mt-5"> <!-- align-items-stretch ensures equal height -->
+        <div class="row mt-5">
           <!-- <h1 class="text-center mb-4">About</h1> -->
     <!-- Column with Image -->
     <div class="col-md-6 col-sm-12 d-flex align-items-center">
-      <img src="img/pexels-olly-3769021.jpg" class="my-img " alt="author's image">
+      <img src="img/about IMAGE.png" class="my-img " alt="author's image">
     </div>
   
     <!-- Column with Text -->
     <div class="col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center text-center text-md-start">
       <div class="container">
-        <p class="text-start text-center text-md-start the-story">The Story Of</p>
+        <!-- <p class="text-start text-center text-md-start the-story">The Story Of</p> -->
         <h1 class="mb-3"><%= about.authorsName %></h1>
         <p><%= about.content %>></p>
       </div>
@@ -169,7 +182,7 @@
             <div class="col">
               <div class="card h-100">
                 <% if (post.image) { %>
-                  <img src="<%= post.image %>" class="card-img-top" alt="Blog Image" style="height: 320px; width: 100%;" >
+                  <img src="<%= post.image %>" class="card-img-top" alt="Blog Image"style="height: 420px; object-fit: cover; width: 100%; alt="<%= post.title %>" >
                 <% } %>
                 
                 <div class="card-body">
@@ -233,7 +246,7 @@
             <div class="col">
               <div class="card h-100">
                 <% if (bookItem.coverImage) { %>
-                  <img src="<%= bookItem.coverImage %>" class="card-img-top books-img " style="height: 320px; width: 100%;" alt="<%= bookItem.title %>">
+                  <img src="<%= bookItem.coverImage %>" class="card-img-top books-img" style="height: 460px; object-fit: cover; width: 100%;" alt="<%= bookItem.title %>">
                 <% } %>
                 <div class="card-body">
                   <h5 class="card-title"><%= bookItem.title %></h5>
@@ -314,16 +327,14 @@
 
   <!-- Column with Image -->
   <div class="col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
-    <img src="img/pexels-olly-3769021.jpg" class="my-img img-fluid" alt="author's image">
+    <img src="img/ABIMBOLA PIX (1).png" class="my-img img-fluid" alt="author's image" >
   </div>
 </div>
 
 </div> 
      
 <!-- SUBSCRIBERS SECTION -->
-
-
-<div class="row vh-90 justify-content-center">
+<div class="row py-5 align-items-center"> <!-- Changed min-vh-100 to py-5 -->
   <div class="subscribe text-center">
     <h1 class="mb-4">Get all the latest news and info sent to your inbox.</h1>
 
@@ -340,62 +351,41 @@
       </form>
     </div>
 
-    <!-- Subscribe Button -->
     <button class="btn btn-outline-dark d-inline-flex align-items-center gap-2">
-      Subscribe
+      Subscribe <i class="fas fa-arrow-right"></i>
     </button>
   </div>
 </div>
 
 
-
-<!-- <div class="row min-vh-100 align-items-center">
-  <div class="subscribe text-center">
-    <h1 class="mb-4">Get all the latest news and info sent to your inbox.</h1> -->
-
-    <!-- Email Input -->
-    <!-- <div class="d-flex justify-content-center mb-3">
-      <form class="form-floating w-100" style="max-width: 400px;">
-        <input 
-          type="email" 
-          class="form-control" 
-          id="floatingInputValue" 
-          placeholder="Your Email Address"
-        >
-        <label for="floatingInputValue">Your Email Address</label>
-      </form>
-    </div> -->
-
-    <!-- Subscribe Button -->
-    <!-- <button class="btn btn-outline-dark d-inline-flex align-items-center gap-2">
-      Subscribe <i class="fas fa-arrow-right"></i>
-    </button>
-  </div>
-</div> -->
-
-
-
-
-<footer id="contacts" class="text-center text-dark py-3 mb-5 vh-90">
-  <div class="container d-flex justify-content-center align-items-center g-5">
-    <div class="mx-5">
-      <p class="mb-0">Copyright © 2025 Bestselling Author</p>
-    </div>
-    <div class="social-icons d-flex justify-content-center justify-content-md-center mx-5">
-      <a href="#"><img src="img/facebook (1).png" class="bottom-icon" alt="Facebook"></a>
-      <a href="#"><img src="img/youtube (1).png" class="bottom-icon" alt="YouTube"></a>
-      <a href="#"><img src="img/instagram (1).png" class="bottom-icon" alt="Instagram"></a>
-      <a href="#"><img src="img/gmail.png" class="bottom-icon" alt="Gmail"></a>
+<footer id="contacts" class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-copyright">
+        <p class="mb-0">&copy; 2025 Bestselling Author. All rights reserved.</p>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">
+          <img src="img/facebook (1).png" class="footer-icon" alt="Facebook">
+        </a>
+        <a href="#" aria-label="YouTube">
+          <img src="img/youtube (1).png" class="footer-icon" alt="YouTube">
+        </a>
+        <a href="#" aria-label="Instagram">
+          <img src="img/instagram (1).png" class="footer-icon" alt="Instagram">
+        </a>
+        <a href="#" aria-label="Email">
+          <img src="img/gmail.png" class="footer-icon" alt="Gmail">
+        </a>
+      </div>
     </div>
   </div>
-
-  
 </footer>
 
       <script src="styles/main.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-     
-      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+     <script src="styles/navbar.js"></script>
+     <script src="styles/hero.js"></script>
     </body>
 </html>
